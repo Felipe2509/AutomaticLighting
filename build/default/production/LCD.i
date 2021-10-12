@@ -1,4 +1,4 @@
-# 1 "sensor.c"
+# 1 "LCD.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,174 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "sensor.c" 2
+# 1 "LCD.c" 2
+# 1 "./LCD.h" 1
+
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdio.h" 1 3
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\musl_xc8.h" 1 3
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdio.h" 2 3
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\features.h" 1 3
+# 10 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdio.h" 2 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 1 3
+
+
+
+
+
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
+# 122 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned size_t;
+# 137 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long ssize_t;
+# 168 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __int24 int24_t;
+# 204 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __uint24 uint24_t;
+# 246 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long off_t;
+# 399 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+int ungetc(int, FILE *);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+#pragma printf_check(printf) const
+#pragma printf_check(vprintf) const
+#pragma printf_check(sprintf) const
+#pragma printf_check(snprintf) const
+#pragma printf_check(vsprintf) const
+#pragma printf_check(vsnprintf) const
+
+int printf(const char *restrict, ...);
+int fprintf(FILE *restrict, const char *restrict, ...);
+int sprintf(char *restrict, const char *restrict, ...);
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+int scanf(const char *restrict, ...);
+int fscanf(FILE *restrict, const char *restrict, ...);
+int sscanf(const char *restrict, const char *restrict, ...);
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 8 "./LCD.h" 2
+
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -20,29 +187,10 @@ extern double __fpnormalize(double);
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdlib.h" 1 3
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\musl_xc8.h" 1 3
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdlib.h" 2 3
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\features.h" 1 3
-# 10 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdlib.h" 2 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdlib.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long int wchar_t;
-# 122 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned size_t;
-# 168 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __int24 int24_t;
-# 204 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __uint24 uint24_t;
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdlib.h" 2 3
 
 
@@ -5623,7 +5771,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\xc.h" 2 3
-# 1 "sensor.c" 2
+# 9 "./LCD.h" 2
 
 
 # 1 "./config.h" 1
@@ -5688,53 +5836,202 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 #pragma config EBTRB = OFF
-# 3 "sensor.c" 2
+# 11 "./LCD.h" 2
 
-# 1 "./adc_lib.h" 1
-# 15 "./adc_lib.h"
-void adc_init ();
-unsigned char adc_read();
-# 4 "sensor.c" 2
 
-# 1 "./config_puertos.h" 1
-# 5 "sensor.c" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\ctype.h" 1 3
+# 10 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\ctype.h" 3
+int isalnum(int);
+int isalpha(int);
+int isblank(int);
+int iscntrl(int);
+int isdigit(int);
+int isgraph(int);
+int islower(int);
+int isprint(int);
+int ispunct(int);
+int isspace(int);
+int isupper(int);
+int isxdigit(int);
+int tolower(int);
+int toupper(int);
+# 41 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\ctype.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 411 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 41 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\ctype.h" 2 3
 
-unsigned char password[5] ={'1','1','1','1',0};
-unsigned char pass_user[5];
 
-unsigned int value_adc = 0;
-unsigned char col_loc, rowloc, temp_col;
-unsigned char keypad[4][3] = {'7', '8', '9',
-                              '4', '5', '6',
-                              '1', '2', '3',
-                              '*', '0', '#'};
+int isalnum_l(int, locale_t);
+int isalpha_l(int, locale_t);
+int isblank_l(int, locale_t);
+int iscntrl_l(int, locale_t);
+int isdigit_l(int, locale_t);
+int isgraph_l(int, locale_t);
+int islower_l(int, locale_t);
+int isprint_l(int, locale_t);
+int ispunct_l(int, locale_t);
+int isspace_l(int, locale_t);
+int isupper_l(int, locale_t);
+int isxdigit_l(int, locale_t);
+int tolower_l(int, locale_t);
+int toupper_l(int, locale_t);
 
-unsigned char keyfind();
-void delay_ms(unsigned int delay_val);
-unsigned char idx = 0;
-unsigned int bandera=1;
-unsigned int control_parental=0;
-void main() {
+int isascii(int);
+int toascii(int);
+# 13 "./LCD.h" 2
+# 39 "./LCD.h"
+    void Estado_Sis(int count);
+    void Lcd_Port(char a);
+    void Lcd_Cmd(char a);
+    void Lcd_Clear(void);
+    void Lcd_Set_Cursor(char a, char b);
+    void Lcd_Init(void);
+    void Lcd_Write_Char(char a);
+    void Lcd_Write_String(char *a);
+    void delay_ms(unsigned int delay_val);
+# 1 "LCD.c" 2
 
-    OSCCON = 0x72;
-    RBPU = 0;
-    TRISB7 = 1;
-    TRISB0 = 0;
-    adc_init();
 
-    while (1) {
 
-        value_adc = adc_read();
-        if (RB7 == 1 && value_adc < 25&&control_parental=0) {
-            LATB0 = 1;
-        } else {
-            LATB0 = 0;
 
-        }
-        capturarTeclado();
+void Lcd_Port(char a) {
 
-        delay_ms(500);
+
+
+
+
+
+    if(a & 1)
+       RD4; = 1;
+    else
+       RD4; = 0;
+
+    if(a & 2)
+       RD5; = 1;
+    else
+       RD5; = 0;
+
+    if(a & 4)
+       RD6; = 1;
+    else
+       RD6; = 0;
+
+    if(a & 8)
+       RD7; = 1;
+    else
+       RD7; = 0;
+}
+
+
+
+
+void Lcd_Cmd(char a) {
+
+
+
+
+
+    RD0; = 0;
+    Lcd_Port(a);
+    RD1; = 1;
+    delay_ms(4);
+    RD1; = 0;
+}
+
+
+
+void Lcd_Clear(void) {
+
+
+
+
+
+    Lcd_Cmd(0);
+    Lcd_Cmd(1);
+}
+
+
+
+void Lcd_Set_Cursor(char a, char b) {
+
+
+
+
+
+    char temp, z, y;
+    if (a == 1) {
+        temp = 0x80 + b - 1;
+        z = temp >> 4;
+        y = temp & 0x0F;
+        Lcd_Cmd(z);
+        Lcd_Cmd(y);
+    } else if (a == 2) {
+        temp = 0xC0 + b - 1;
+        z = temp >> 4;
+        y = temp & 0x0F;
+        Lcd_Cmd(z);
+        Lcd_Cmd(y);
     }
+}
+
+
+void Lcd_Init(void) {
+
+
+
+
+
+    Lcd_Port(0x00);
+    delay_ms(20);
+    Lcd_Cmd(0x03);
+    delay_ms(5);
+    Lcd_Cmd(0x03);
+    delay_ms(11);
+    Lcd_Cmd(0x03);
+
+    Lcd_Cmd(0x02);
+    Lcd_Cmd(0x02);
+    Lcd_Cmd(0x08);
+    Lcd_Cmd(0x00);
+    Lcd_Cmd(0x0C);
+    Lcd_Cmd(0x00);
+    Lcd_Cmd(0x06);
+}
+
+
+
+void Lcd_Write_Char(char a) {
+
+
+
+
+
+    char temp, y;
+    temp = a & 0x0F;
+    y = a & 0xF0;
+    RD0; = 1;
+    Lcd_Port(y >> 4);
+    RD1; = 1;
+    delay_ms(1);
+    RD1; = 0;
+    Lcd_Port(temp);
+    RD1; = 1;
+    delay_ms(1);
+    RD1; = 0;
+}
+
+
+
+void Lcd_Write_String(char *a) {
+
+
+
+
+
+    int i;
+    for (i = 0; a[i] != '\0'; i++)
+        Lcd_Write_Char(a[i]);
 }
 
 void delay_ms(unsigned int delay_val) {
@@ -5742,131 +6039,4 @@ void delay_ms(unsigned int delay_val) {
     for (i = 0; i < delay_val; i++) {
         for (j = 0; j < 165; j++);
     }
-}
-
-void capturarTeclado(){
-    char key;
-    unsigned int i;
-    key=keyfind();
-    pass_user[idx++] = key;
-    for (i = 0; i < 4; i++) {
-        if(pass_user[i]!=password[i])
-            bandera=0;
-                             }
-
-    if(bandera==1){
-        if(control_parental==0){
-            control_parental=1;
-        }else{
-            control_parental=0;
-        }
-        idx=0;
-    }
-    bandera=1;
-
-}
-
-unsigned char keyfind() {
-
-    TRISC = 0xf0;
-    unsigned char temp1;
-
-    LATC = 0xf0;
-    do {
-        do {
-
-            col_loc = PORTC & 0xf0;
-
-        } while (col_loc != 0xf0);
-        col_loc = PORTC & 0xf0;
-    } while (col_loc != 0xf0);
-
-    delay_ms(50);
-    LATC = 0xf0;
-    do {
-        do
- {
-
-            col_loc = PORTC & 0xf0;
-        } while (col_loc == 0xf0);
-        col_loc = PORTC & 0xf0;
-    } while (col_loc == 0xf0);
-
-    delay_ms(20);
-
-    col_loc = PORTC & 0xf0;
-
-
-
-    while (1) {
-        LATC = 0xfe;
-        col_loc = PORTC & 0xf0;
-        temp_col = col_loc;
-        if (col_loc != 0xf0) {
-            rowloc = 0;
-            while (temp_col != 0xf0)
-            {
-                temp_col = PORTC & 0xf0;
-            }
-            break;
-        }
-
-        LATC = 0xfd;
-        col_loc = PORTC & 0xf0;
-        temp_col = col_loc;
-        if (col_loc != 0xf0) {
-            rowloc = 1;
-            while (temp_col != 0xf0)
-            {
-                temp_col = PORTC & 0xf0;
-            }
-            break;
-        }
-
-        LATC = 0xfb;
-        col_loc = PORTC & 0xf0;
-        temp_col = col_loc;
-        if (col_loc != 0xf0) {
-            rowloc = 2;
-            while (temp_col != 0xf0)
-            {
-                temp_col = PORTC & 0xf0;
-            }
-            break;
-        }
-
-        LATC = 0xf7;
-        col_loc = PORTC & 0xf0;
-        temp_col = col_loc;
-        if (col_loc != 0xf0) {
-            rowloc = 3;
-            while (temp_col != 0xf0)
-            {
-                temp_col = PORTC & 0xf0;
-            }
-            break;
-        }
-
-    }
-
-
-
-    while (1) {
-
-        if (col_loc == 0xe0) {
-            return keypad[rowloc][0];
-        } else
-            if (col_loc == 0xd0) {
-            return keypad[rowloc][1];
-        } else
-            if (col_loc == 0xb0) {
-            return keypad[rowloc][2];
-        } else
- {
-            return keypad[rowloc][3];
-        }
-    }
-
-    delay_ms(300);
-
 }

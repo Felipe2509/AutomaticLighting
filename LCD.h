@@ -12,17 +12,17 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-#ifndef LDC_H
-#define	LDC_H
+#ifndef LCD_H
+#define	LCD_H
 
 #ifdef	__cplusplus
 extern "C" {
 #endif
 
 
-#define input 1;
+#define input 1;                    
 #define ouput 0;
-#define on 0;
+#define on 1;
 #define off 0;
 #define conf_RS TRISDbits.TRISD0;
 #define conf_EN TRISDbits.TRISD1;
@@ -32,7 +32,7 @@ extern "C" {
 #define conf_D7 TRISDbits.TRISD7;
 #define RS RD0;
 #define EN RD1;
-#define D4 RD0;
+#define D4 RD4;
 #define D5 RD5;
 #define D6 RD6;
 #define D7 RD7;
@@ -51,5 +51,4 @@ extern "C" {
 }
 #endif
 
-#endif	/* LDC_H */
-
+#endif	/* LCD_H */
